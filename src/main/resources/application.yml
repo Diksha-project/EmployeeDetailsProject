@@ -1,4 +1,8 @@
 spring:
+  logging:
+    file: Documents/logs/application.txt
+    level:
+      root: info  # Correctly indented
   datasource:
     url: jdbc:mysql://localhost:3306/assignment
     username: root
@@ -11,4 +15,3 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
-
