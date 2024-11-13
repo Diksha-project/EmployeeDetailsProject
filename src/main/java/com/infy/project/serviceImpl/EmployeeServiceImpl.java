@@ -4,8 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import com.infy.project.custom.exception.NoSuchElementException;
 import com.infy.project.entity.Address;
 import com.infy.project.entity.Employee;
 import com.infy.project.repo.EmployeeRepo;
@@ -47,13 +49,13 @@ public class EmployeeServiceImpl  implements EmployeeService{
 		 Optional<Employee> empOptional = employeeRepo.findByEmpId(empid);
 		 
 		 if(empOptional.isEmpty()) {
-			 throw new RuntimeException("This employee is not found");
-		 }
-		 
-		 Employee emp = empOptional.get();
-		 return emp;
+			 throw new NoSuchElementException("EMP_NOT_FOUND", "This element is not present in our database: " + empid);
+			    
+		
 		 
 	}
-
+		 Employee emp = empOptional.get();
+		 return emp;
+	}
 	
 }
