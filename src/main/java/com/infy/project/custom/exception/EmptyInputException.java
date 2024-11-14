@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EmptyInputException extends RuntimeException{
 	
-	private String ErrorCode;
-    private  String ErrorMessage;
+	 private String ErrorCode;
+     private  String ErrorMessage;
 	
 
 }

@@ -14,6 +14,6 @@ public interface EmployeeRepo extends JpaRepository <Employee, Long>{
     
 	
 	
-	Optional<Employee> findByEmpId(String empid);
+	 Optional<Employee>  findByEmpId(String empid);
 
 }

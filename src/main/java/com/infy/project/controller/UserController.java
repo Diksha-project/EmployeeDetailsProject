@@ -33,7 +33,7 @@ public class UserController {
 		 
 		List<User> userList  = userService.getAllUsers();
 		
-		return new ResponseEntity<>(userList, HttpStatus.OK) ;
+		 return new ResponseEntity<>(userList, HttpStatus.OK) ;
 	 }
 	 
 	

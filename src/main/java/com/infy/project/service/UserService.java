@@ -7,12 +7,12 @@ import com.infy.project.entity.User;
 public interface UserService {
 	
 	
-	List<User>  getAllUsers();
+	 List<User>  getAllUsers();
 	 User getUserByUserId(String userId);
 	 
 	 User getByEmail(String email);
 	 
-	String addNewUser(User user);
+	 String addNewUser(User user);
 	 
 	 
 

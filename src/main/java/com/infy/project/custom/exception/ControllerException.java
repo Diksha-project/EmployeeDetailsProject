@@ -14,7 +14,7 @@ public class ControllerException extends RuntimeException{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private String ErrorCode;
-	private String ErrorMessage;
+	 private String ErrorCode;
+	 private String ErrorMessage;
 
 }

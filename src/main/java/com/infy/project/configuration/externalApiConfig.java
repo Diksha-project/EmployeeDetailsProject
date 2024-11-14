@@ -10,7 +10,7 @@ public class externalApiConfig {
 	
        @Bean
        RestTemplate restTemplate() {
-		return new RestTemplate();
+		 return new RestTemplate();
 		
 	}
 

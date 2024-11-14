@@ -19,7 +19,7 @@ public class EmployeeServiceImpl  implements EmployeeService{
 	
 	
 	@Autowired
-	private EmployeeRepo employeeRepo;
+	private EmployeeRepo    employeeRepo;
 
 	@Override
 	public List<Employee> getEmployee() {

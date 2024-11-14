@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserAlreadyPresentException extends RuntimeException{
 
-	private static final long serialVersionUID = 1L;
-	private String ErrorCode;
-	private String ErrorMessage;
+	 private static final long serialVersionUID = 1L;
+	 private String ErrorCode;
+	 private String ErrorMessage;
 }

@@ -14,11 +14,11 @@ import com.infy.project.service.UserService;
 
 
 @Service
-public class UserServiceImpl implements UserService{
+public class  UserServiceImpl implements UserService{
 
 	
 	@Autowired
-	private UserRepo userRepo;
+	private UserRepo  userRepo;
 	
 	
 	@Override

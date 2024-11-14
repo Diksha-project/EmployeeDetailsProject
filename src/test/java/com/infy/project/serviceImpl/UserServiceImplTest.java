@@ -31,7 +31,7 @@ public class UserServiceImplTest {
 	
 	//@Disabled
 	@ParameterizedTest
-	@ValueSource(strings = {"100010", "100020", "100030"})
+	@ValueSource(strings =  {"100010", "100020", "100030"})
     void getUserByUserId(String userId) {
 		
 		when(userRepo.findById("100010")).thenReturn(createUserStub(userId));

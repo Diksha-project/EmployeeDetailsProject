@@ -6,7 +6,7 @@ import com.infy.project.entity.Employee;
 
  public interface EmployeeService {
 	
-	public List<Employee> getEmployee();
-	public  String addEmployee(Employee emp);
-    public Employee getByEmpId(String empid);
+	 public List<Employee> getEmployee();
+	 public  String addEmployee(Employee emp);
+     public Employee getByEmpId(String empid);
 }

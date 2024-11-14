@@ -9,7 +9,7 @@ public class AddressController {
 	@GetMapping
 	String getAddress(){
 		
-		return "This is address controller"; 
+		 return "This is address controller"; 
 		
 	}
 

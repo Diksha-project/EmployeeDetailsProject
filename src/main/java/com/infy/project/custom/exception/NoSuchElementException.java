@@ -14,9 +14,9 @@ import lombok.NoArgsConstructor;
 public class NoSuchElementException extends RuntimeException{
 
 	
-	private static final long serialVersionUID = 1L;
-	private String ErrorCode;
-	private String ErrorMessage;
+	 private static final long serialVersionUID = 1L;
+	 private String ErrorCode;
+	 private String ErrorMessage;
 	
 
 

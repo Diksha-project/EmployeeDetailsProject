@@ -21,7 +21,7 @@ public class ControllerGlobalException extends ResponseEntityExceptionHandler{
   	
  @ExceptionHandler(NoSuchElementException.class)
  public ResponseEntity<Map> handleNoSuchElementException( NoSuchElementException ex){
-	 Map<String, String> errorResponse = new HashMap<>();
+	  Map<String, String> errorResponse = new HashMap<>();
      errorResponse.put("errorCode", ex.getErrorCode());
      errorResponse.put("errorMessage", ex.getErrorMessage());
 
