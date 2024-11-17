@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.infy.project.entity.Employee;
 import com.infy.project.repo.EmployeeRepo;
+import com.infy.project.service.EmployeeServiceImpl;
 
 @SpringBootTest
 public class EmployeeServiceImplTest {

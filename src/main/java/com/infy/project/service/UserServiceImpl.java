@@ -1,16 +1,19 @@
-package com.infy.project.serviceImpl;
+package com.infy.project.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.infy.project.custom.exception.NoSuchElementException;
 import com.infy.project.custom.exception.UserAlreadyPresentException;
 import com.infy.project.entity.User;
 import com.infy.project.repo.UserRepo;
-import com.infy.project.service.UserService;
 
 
 @Service
@@ -20,6 +23,16 @@ public class  UserServiceImpl implements UserService{
 	@Autowired
 	private UserRepo  userRepo;
 	
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
+	
+	@Autowired
+	private AuthenticationManager authenticationManager;
+	
+	@Autowired
+	private JWTService jwtService;
 	
 	@Override
 	public List<User> getAllUsers() {
@@ -50,10 +63,19 @@ public class  UserServiceImpl implements UserService{
 	@Override
 	public String addNewUser(User user) {
 	 
-		 User getExistingUser = userRepo.getById(user.getUserId());
-		 
-		 if(getExistingUser.getUserId() == user.getUserId()) {
-			 
+//User getExistingUser = userRepo.getById(user.getUserId());
+
+Optional<User> getExistingUserOptional = userRepo.findById(user.getUserId());
+
+User getExistingUser = new User();
+if( !getExistingUserOptional.isEmpty()) {
+	
+	 getExistingUser=  getExistingUserOptional.get();
+}
+
+		 		 
+		 if(  getExistingUser.getUserId() == user.getUserId() ) {
+		System.out.println(	"To check userid -----"+ getExistingUser.getUserId());
 			 throw new UserAlreadyPresentException("603", "This User is Already Present in the Database, Kindly change your UserId");
 		 }
 		
@@ -63,6 +85,8 @@ public class  UserServiceImpl implements UserService{
 				.phoneNo(user.getPhoneNo())
 				.build();
 		
+		newUser.setPassword(passwordEncoder.encode(user.getPassword()));
+		
 //		newUser.setUserId(user.getUserId());
 //		newUser.setEmail(user.getEmail());
 //		newUser.setPassword(user.getPassword());
@@ -70,8 +94,23 @@ public class  UserServiceImpl implements UserService{
 		
 		userRepo.save(newUser);
 		
-		return "User Has been created Successfully";
+		return "User Has been created Successfully"+newUser.getPassword();
 		
+	}
+
+	
+	
+	@Override
+	public String verifyUser(User user) {
+		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUserId(),user.getPassword()));
+		
+		if(authentication.isAuthenticated()) {
+			
+			
+			String token = jwtService.generateToken(user.getUserId());
+			return token;
+		}
+		return "User Auntication failed";
 	}
 
 }

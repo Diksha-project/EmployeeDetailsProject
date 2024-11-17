@@ -13,6 +13,7 @@ public interface UserService {
 	 User getByEmail(String email);
 	 
 	 String addNewUser(User user);
+	 String verifyUser(User user);
 	 
 	 
 

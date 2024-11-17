@@ -1,4 +1,4 @@
-package com.infy.project.serviceImpl;
+package com.infy.project.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +11,6 @@ import com.infy.project.custom.exception.NoSuchElementException;
 import com.infy.project.entity.Address;
 import com.infy.project.entity.Employee;
 import com.infy.project.repo.EmployeeRepo;
-import com.infy.project.service.EmployeeService;
 
 
 @Service

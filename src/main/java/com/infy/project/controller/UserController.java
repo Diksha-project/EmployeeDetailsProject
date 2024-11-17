@@ -28,6 +28,33 @@ public class UserController {
 	private UserService userService;
 	
 	
+	 @PostMapping("/register")
+		ResponseEntity<String> addNewUser(@RequestBody User user){
+			if(user == null || user.getUserId() == null) {
+				
+				throw new EmptyInputException("601 ","Please Add UserDetails to add user ");
+			}
+			
+		String str = 	userService.addNewUser(user);
+		
+		return new ResponseEntity<>(str,HttpStatus.CREATED);
+			
+			
+		}
+	 
+	 
+	 @PostMapping("/login")
+	 ResponseEntity<String> loginUser(@RequestBody User user){
+			
+			
+		String str = 	userService.verifyUser(user);
+		
+		return new ResponseEntity<>(str,HttpStatus.CREATED);
+			
+			
+		}
+	
+	
 	 @GetMapping
 	 ResponseEntity<List<User>> getAllUser(){
 		 
@@ -52,19 +79,7 @@ public class UserController {
 	}
 	 
 	 
-	 @PostMapping("/add")
-	ResponseEntity<String> addNewUser(@RequestBody User user){
-		if(user == null || user.getUserId() == null) {
-			
-			throw new EmptyInputException("601 ","Please Add UserDetails to add user ");
-		}
-		
-	String str = 	userService.addNewUser(user);
 	
-	return new ResponseEntity<>(str,HttpStatus.CREATED);
-		
-		
-	}
 	
 	
 

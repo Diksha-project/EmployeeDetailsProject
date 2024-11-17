@@ -16,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.infy.project.entity.User;
 import com.infy.project.repo.UserRepo;
+import com.infy.project.service.UserServiceImpl;
 
 @SpringBootTest
 public class UserServiceImplTest {
